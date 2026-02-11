@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday 🎉</title>
+
+<style>
+body{
+margin:0;
+height:100vh;
+background:linear-gradient(135deg,#1a2a6c,#b21f1f,#fdbb2d);
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:sans-serif;
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+#container{display:none;animation:fade 2s forwards;}
+
+h1{font-size:2.5rem;}
+p{font-size:1.2rem;}
+
+button{
+padding:15px 30px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:gold;
+cursor:pointer;
+box-shadow:0 0 20px gold;
+}
+
+.balloon{
+position:absolute;
+width:40px;
+height:55px;
+border-radius:50%;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+from{transform:translateY(100vh);}
+to{transform:translateY(-120px);}
+}
+
+.sparkle{
+position:absolute;
+width:6px;
+height:6px;
+background:white;
+border-radius:50%;
+animation:spark 2s linear infinite;
+}
+
+@keyframes spark{
+from{opacity:1;}
+to{opacity:0;transform:translateY(-300px);}
+}
+</style>
+</head>
+
+<body>
+
+<button onclick="magic()">✨ Click For Magic ✨</button>
+
+<div id="container">
+<img src="priya.jpg" width="200" style="border-radius:20px;box-shadow:0 0 20px white"><br><br>
+<h1>🎂 Happy Birthday Priya (Kaju) 🎉</h1>
+<p>Always keep smiling 😊 it suit's you the best</p>
+<p>Your smile make everything better💖</p>
+<p>From,<br><b>Shivam</b></p>
+</div>
+
+<script>
+function magic(){
+document.querySelector("button").style.display="none";
+document.getElementById("container").style.display="block";
+
+for(let i=0;i<40;i++){
+let b=document.createElement("div");
+b.className="balloon";
+b.style.left=Math.random()*window.innerWidth+"px";
+b.style.background=`hsl(${Math.random()*360},80%,60%)`;
+document.body.appendChild(b);
+}
+
+for(let i=0;i<120;i++){
+let s=document.createElement("div");
+s.className="sparkle";
+s.style.left=Math.random()*window.innerWidth+"px";
+s.style.top=window.innerHeight+"px";
+document.body.appendChild(s);
+}
+
+let audio=new Audio("https://www.soundjay.com/human/sounds/applause-8.mp3");
+audio.play();
+}
+</script>
+
+</body>
+</html>
