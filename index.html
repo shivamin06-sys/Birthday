@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Birthday Priya 💖</title>
+<title>Happy Birthday Priya 🎉</title>
 
 <style>
 body{
@@ -18,75 +18,81 @@ color:white;
 text-align:center;
 }
 
-button{
-padding:15px 35px;
-font-size:22px;
-border:none;
-border-radius:40px;
-background:#fff;
-color:#ff4081;
-cursor:pointer;
-box-shadow:0 0 20px rgba(255,255,255,0.7);
-}
-
-#content{
-display:none;
-animation:fadeIn 2s ease forwards;
-}
-
-h1{
-font-size:3rem;
-}
-
-p{
-font-size:1.4rem;
+.container{
+background:rgba(0,0,0,0.4);
+padding:30px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.4);
+animation:fadeIn 2s;
 }
 
 @keyframes fadeIn{
-from{opacity:0; transform:scale(0.6);}
-to{opacity:1; transform:scale(1);}
+from{opacity:0;transform:scale(0.8);}
+to{opacity:1;transform:scale(1);}
+}
+
+h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+p{
+font-size:20px;
+margin:10px 0;
+}
+
+.photo{
+width:220px;
+height:220px;
+object-fit:cover;
+border-radius:50%;
+border:5px solid white;
+margin:20px 0;
+box-shadow:0 0 15px rgba(255,255,255,0.8);
 }
 
 .heart{
 position:absolute;
-font-size:24px;
-animation:float 6s linear infinite;
+font-size:20px;
+color:pink;
+animation:floatUp 6s linear infinite;
 }
 
-@keyframes float{
-from{transform:translateY(100vh); opacity:1;}
-to{transform:translateY(-10vh); opacity:0;}
+@keyframes floatUp{
+0%{bottom:-20px;opacity:0;}
+50%{opacity:1;}
+100%{bottom:100vh;opacity:0;}
 }
 </style>
 </head>
 
 <body>
 
-<button onclick="startMagic()">💝 Tap for Magic 💝</button>
+<div class="container">
+<h1>Happy Birthday Priya 🎂</h1>
 
-<div id="content">
-<h1>🎂 Happy Birthday Priya (Kaju) 🎉</h1>
-<p>You make everything more beautiful just by being you ✨</p>
-<p>Keep smiling, it suits you the most 😊</p>
-<p>With love ❤️ — Shivam</p>
+<img src="Priya.jpeg" class="photo">
+
+<p>You are truly special and you make every moment brighter ✨</p>
+<p>May your day be filled with smiles, laughter and love 💖</p>
+<p>Always stay happy and keep shining 🌟</p>
+
+<h2>With Love,<br>Shivam ❤️</h2>
 </div>
 
 <script>
-function startMagic(){
-document.querySelector("button").style.display="none";
-document.getElementById("content").style.display="block";
-
-setInterval(()=>{
-let heart=document.createElement("div");
+function createHeart(){
+const heart=document.createElement("div");
 heart.className="heart";
-heart.innerHTML="❤️";
+heart.innerHTML="❤";
 heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(20+Math.random()*30)+"px";
+heart.style.fontSize=(20+Math.random()*20)+"px";
 document.body.appendChild(heart);
 
-setTimeout(()=>{heart.remove()},6000);
-},200);
+setTimeout(()=>{heart.remove();},6000);
 }
+
+setInterval(createHeart,300);
 </script>
 
 </body>
